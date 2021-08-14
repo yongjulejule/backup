@@ -5,29 +5,23 @@ Plug 'preservim/nerdtree'				"filetree
 Plug 'dense-analysis/ale'				"syntax check
 Plug 'preservim/nerdcommenter'			"comment
 Plug 'nathanaelkane/vim-indent-guides'	"highlight indent lines
-"Plug 'Yggdroot/indentLine'				"highlight indent lines
 Plug 'vim-airline/vim-airline'			"fancy status bar
 Plug 'vim-airline/vim-airline-themes' 	"add airline theme
 Plug 'airblade/vim-gitgutter'			"see code changes
 "Plug 'junegunn/fzf.vim'				"file manager
 Plug 'ctrlpvim/ctrlp.vim'				"file manager
-Plug 'terryma/vim-multiple-cursors'		"multiple selection
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} "multiple selection-updated
 Plug 'Raimondi/delimitMate'				"auto bracket
 Plug 'terryma/vim-smooth-scroll'		"smooth scroll
 Plug 'tpope/vim-surround'				"smart quotes
 Plug 'pbondoer/vim-42header'			"42header
 Plug 'easymotion/vim-easymotion'		"easy to deal with words
 Plug 'edkolev/promptline.vim'			"shell inside VIM
-"Plug 'pangloss/vim-simplefold'			"fold codes
 Plug 'vim-scripts/WhiteWash'			"highlights white spaces
-"Plug 'wadackel/vim-dogrun'				"color scheme
 Plug 'crusoexia/vim-monokai'
-"Plug 'nanotech/jellybeans.vim'			"color theme
 Plug 'mattn/emmet-vim'
-"Plug 'davidhalter/jedi-vim' 			"python autocomplication
 Plug 'octol/vim-cpp-enhanced-highlight' "유저 함수 하이라이팅
 Plug 'ryanoasis/vim-devicons'			"nerdtree icons
-"coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -44,14 +38,41 @@ set cursorline
 set syntax=1
 set encoding=utf8
 set termguicolors
+"cursor error fix
 set guicursor=n-v-c-i:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,sm:block-blinkwait175-blinkoff150-blinkon175
-filetype on 
-
 let g:coc_disable_transparent_cursor = 1
-" multi cursor
 
-let g:multi_cursor_quit_key = '<C-c>'
+"Easymotion mappings
+
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap S <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
 "airline setting
+
+
 let g:airline_theme='bubblegum'
 " Smarter tab line 활성화: 모든 파일 버퍼 출력
 let g:airline#extensions#tabline#enabled = 1
@@ -63,8 +84,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " Tab line 에 파일명만 출력되도록 설정
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" Powerline-font 활성화
-let g:airline_powerline_fonts = 1
+" Powerline-font 활성화 let g:airline_powerline_fonts = 1
 
 nnoremap <C-h> :bprevious!<Enter>     "이전 버퍼로 이동
 nnoremap <C-l> :bnext!<Enter>         "다음 버퍼로 이동
@@ -121,6 +141,8 @@ tnoremap <Esc> <C-\><C-n>
 
 
 " COC SETTING
+
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -188,8 +210,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -244,8 +266,13 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 					
 filetype plugin indent on
+
+"Custom Color set
+
+
 colorscheme monokai
 highlight Comment term=bold ctermfg=103 guifg=#c6abff
+highlight VM_Mono guibg=gray
 highlight Normal  guibg=black 
 highlight Linenr  guibg=black term=italic
 highlight IndentGuidesOdd  ctermbg=235 guibg=#242424 
