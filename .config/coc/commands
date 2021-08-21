@@ -1,0 +1,4 @@
+document.jumpToNextSymbol
+workspace.showOutput
+clangd.memoryUsage
+workspace.clearWatchman
