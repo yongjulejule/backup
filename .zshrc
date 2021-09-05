@@ -1,12 +1,12 @@
 alias dcc='gcc -g3 -fsanitize=address'
 alias trash='~/goinfre'
-alias val='valgrind --leak-check=full --error-limit=no'
 alias ls=lsd
 alias ah86='arch -x86_64'
 alias 42='~/42-cursus'
 alias fdf='~/42-cursus/fdf'
 alias vi=nvim
 alias vim=nvim
+alias norm='norminette | sed s/^Error/🌈에✨러🤪/g'
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MAIL='yongjule@42student.42seoul.kr'

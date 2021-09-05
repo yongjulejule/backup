@@ -23,6 +23,9 @@ Plug 'mattn/emmet-vim'
 Plug 'octol/vim-cpp-enhanced-highlight' "유저 함수 하이라이팅
 Plug 'ryanoasis/vim-devicons'			"nerdtree icons
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'wfxr/minimap.vim'					"minimap
+"Plug 'luochen1990/rainbow'				"🌈 괄호
+Plug 'junegunn/rainbow_parentheses.vim'
 call plug#end()
 
 set nocompatible
@@ -42,6 +45,8 @@ set scrolloff=999
 "cursor error fix
 set guicursor=n-v-c-i:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,sm:block-blinkwait175-blinkoff150-blinkon175
 let g:coc_disable_transparent_cursor = 1
+
+autocmd FileType vim,c,cpp,h,hpp | RainbowParentheses
 
 " 자동 ctags
 au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
