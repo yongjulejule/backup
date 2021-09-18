@@ -279,6 +279,7 @@ filetype plugin indent on
 "Custom Color set
 
 
+:match TODO /NOTE/
 colorscheme monokai
 highlight Comment term=bold ctermfg=103 guifg=#c6abff
 highlight VM_Mono guibg=gray

@@ -9,6 +9,7 @@ alias vim=nvim
 alias norm='norminette | sed s/^Error/🌈에✨러🤪/g'
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export USER='yongjule'
 export MAIL='yongjule@42student.42seoul.kr'
 export ZSH="/Users/jun/.oh-my-zsh"
 plugins=(zsh-autosuggestions
@@ -18,6 +19,7 @@ plugins=(zsh-autosuggestions
 source $ZSH/oh-my-zsh.sh
 source ~/.p10k.zsh
 
+export EDITOR=/opt/homebrew/bin/nvim
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
