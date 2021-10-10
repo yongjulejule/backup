@@ -4,7 +4,7 @@ Plug 'tpope/vim-sensible'				"required
 Plug 'preservim/nerdtree'				"filetree
 Plug 'dense-analysis/ale'				"syntax check
 Plug 'preservim/nerdcommenter'			"comment
-Plug 'nathanaelkane/vim-indent-guides'	"highlight indent lines
+"Plug 'nathanaelkane/vim-indent-guides'	"highlight indent lines
 Plug 'vim-airline/vim-airline'			"fancy status bar
 Plug 'vim-airline/vim-airline-themes' 	"add airline theme
 Plug 'airblade/vim-gitgutter'			"see code changes
@@ -26,6 +26,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'wfxr/minimap.vim'					"minimap
 "Plug 'luochen1990/rainbow'				"🌈 괄호
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 set nocompatible
@@ -51,8 +53,10 @@ autocmd FileType vim,c,cpp,h,hpp | RainbowParentheses
 " 자동 ctags
 au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 
-"Easymotion mappings
 
+
+
+"Easymotion mappings
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -116,8 +120,8 @@ let g:NERDTrimTrailingWhitespace = 1	" Enable trimming of trailing whitespace wh
 let g:ale_sign_column_always = 1
 
 "for vim-indent-guide
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_auto_colors = 0
 
 "for ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -273,18 +277,25 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-					
-filetype plugin indent on
+
+"filetype plugin indent on
 
 "Custom Color set
 
 
+:match TODO /NOTE/
 colorscheme monokai
 highlight Comment term=bold ctermfg=103 guifg=#c6abff
 highlight VM_Mono guibg=gray
 highlight Normal  guibg=black 
 highlight Linenr  guibg=black term=italic
-highlight IndentGuidesOdd  ctermbg=235 guibg=#242424 
-highlight IndentGuidesEven ctermbg=233 guibg=#404040
+"highlight IndentGuidesOdd  ctermbg=235 guibg=#242424 
+"highlight IndentGuidesEven ctermbg=233 guibg=#404040
 highlight NERDTreeFile ctermfg=140
 highlight NERDTreeExecFile ctermfg=146
+highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine
+highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine
+highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine
+highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine
+highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine
+highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine

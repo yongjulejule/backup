@@ -1,0 +1,10 @@
+#!/bin/bash
+
+FLAG="$HOME/goinfre/VSCode-darwin-universal.zip"
+
+if [ ! -e "$FLAG" ]; then
+    curl -o $FLAG  https://az764295.vo.msecnd.net/stable/ee8c7def80afc00dd6e593ef12f37756d8f504ea/VSCode-darwin-universal.zip
+	open $FLAG
+else
+    echo "already downloaded"
+fi
